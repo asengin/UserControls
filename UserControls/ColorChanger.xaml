@@ -1,0 +1,65 @@
+﻿<UserControl x:Class="UserControls.ColorChanger"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:UserControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="100" d:DesignWidth="400"
+             Name="colorControl">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Label Grid.Column="0" Grid.Row="0" Content="Red" FontSize="20" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+        <Label Grid.Column="0" Grid.Row="1" Content="Green" FontSize="20" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+        <Label Grid.Column="0" Grid.Row="2" Content="Blue" FontSize="20" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+        <Slider x:Name="sliderRed" 
+                Grid.Column="1" 
+                Grid.Row="0" 
+                HorizontalAlignment="Center" 
+                VerticalAlignment="Center" 
+                Minimum="0" 
+                Maximum="255"
+                Width="255"
+                Value="{Binding ElementName=colorControl, Path=Red}"
+                />
+        
+        <Slider x:Name="sliderGreen" 
+                Grid.Column="1" 
+                Grid.Row="1" 
+                HorizontalAlignment="Center" 
+                VerticalAlignment="Center" 
+                Minimum="0" 
+                Maximum="255"
+                Width="255"
+                Value="{Binding ElementName=colorControl, Path=Green}"
+                />
+        
+        <Slider x:Name="sliderBlue" 
+                Grid.Column="1" 
+                Grid.Row="2" 
+                HorizontalAlignment="Center" 
+                VerticalAlignment="Center" 
+                Minimum="0" 
+                Maximum="255"
+                Width="255"
+                Value="{Binding ElementName=colorControl, Path=Blue}"
+                />
+
+        <Rectangle Grid.Column="2" Grid.RowSpan="3" Stroke="Black" Width="70" Height="70" Margin="5">
+            <Rectangle.Fill>
+                <SolidColorBrush Color="{Binding ElementName=colorControl, Path=Color}"/>
+            </Rectangle.Fill>
+        </Rectangle>
+    </Grid>
+
+</UserControl>
